@@ -1,0 +1,373 @@
+openapi: 3.0.3
+info:
+  title: offers-ms
+  description: |
+    Offers microservice
+  version: 1.0.0
+servers:
+- url: /rest/offers-ms/v1.0/
+paths:
+  /offers:
+    post:
+      tags:
+      - All Offers
+      summary: Todas las ofertas.
+      description: Todas las ofertas
+      operationId: all_offers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestAllOffers'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseAllOffers'
+        "400":
+          description: Bad Request
+      x-openapi-router-controller: swagger_server.controllers.all_offers_controller.AllOffersView
+  /offers/{id_offer}:
+    put:
+      tags:
+      - Update Offer
+      summary: Actualizar oferta.
+      description: Actualizar oferta.
+      operationId: update_offer
+      parameters:
+      - name: id_offer
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          title: Id Offer
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestUpdateOffer'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseUpdateOffer'
+        "400":
+          description: Bad Request
+      x-openapi-router-controller: swagger_server.controllers.update_offer_controller
+    delete:
+      tags:
+      - Delete Offer
+      summary: Eliminar oferta.
+      description: Eliminar una oferta existente.
+      operationId: delete_offer
+      parameters:
+      - name: id_offer
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          title: Id Offer
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseDeleteOffer'
+        "400":
+          description: Bad Request
+      x-openapi-router-controller: swagger_server.controllers.delete_offer_controller.DeleteOfferView
+  /newOffer:
+    post:
+      tags:
+      - New Offer
+      summary: Crear una nueva oferta.
+      description: Crear una nueva oferta.
+      operationId: new_offer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestNewOffer'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseNewOffer'
+        "400":
+          description: Bad Request
+      x-openapi-router-controller: swagger_server.controllers.new_offer_controller
+  /getOffer:
+    post:
+      tags:
+      - Get Single Offer
+      summary: Obtener una oferta específica.
+      description: Obtener una oferta específica.
+      operationId: get_single_offer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestGetSingleOffer'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseGetSingleOffer'
+        "400":
+          description: Bad Request
+      x-openapi-router-controller: swagger_server.controllers.get_single_offer_controller
+components:
+  schemas:
+    RequestAllOffers:
+      properties:
+        channel:
+          type: string
+          example: CHANNEL
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+    RequestGetSingleOffer:
+      properties:
+        channel:
+          type: string
+          example: CHANNEL
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        id_offer:
+          type: integer
+          example: 1
+    RequestUpdateOffer:
+      properties:
+        channel:
+          type: string
+          example: CHANNEL
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        data:
+          $ref: '#/components/schemas/RequestOfferData'
+    RequestNewOffer:
+      properties:
+        channel:
+          type: string
+          example: CHANNEL
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        data:
+          $ref: '#/components/schemas/RequestOfferData'
+    RequestOfferData:
+      type: object
+      properties:
+        id_offer:
+          type: integer
+          example: 1
+        offerName:
+          type: string
+          example: Summer Sale
+        offerPrice:
+          type: number
+          example: 25
+        validity_from:
+          type: string
+          format: date-time
+          example: 2023-08-11T00:00:00Z
+        validity_until:
+          type: string
+          format: date-time
+          example: 2023-08-31T23:59:59Z
+    OfferData:
+      type: object
+      properties:
+        id_offer:
+          type: integer
+          example: 1
+        offerName:
+          type: string
+          example: Summer Sale
+        offerPrice:
+          type: number
+          example: 25
+        validity_from:
+          type: string
+          format: date-time
+          example: 2023-08-11T00:00:00Z
+        validity_until:
+          type: string
+          format: date-time
+          example: 2023-08-31T23:59:59Z
+    ResponseAllOffers:
+      properties:
+        code:
+          type: string
+          example: "200"
+        message:
+          type: string
+          example: Datos obtenidos con éxito.
+        internalTransactionId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferData'
+      example:
+        code: "200"
+        data:
+        - id_offer: 1
+          offerName: Summer Sale
+          offerPrice: 25
+          validity_from: 2023-08-11T00:00:00Z
+          validity_until: 2023-08-31T23:59:59Z
+        - id_offer: 2
+          offerName: Autumn Special
+          offerPrice: 30
+          validity_from: 2023-09-01T00:00:00Z
+          validity_until: 2023-09-30T23:59:59Z
+        internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
+        message: Datos obtenidos con éxito.
+    ResponseGetSingleOffer:
+      properties:
+        code:
+          type: string
+          example: "200"
+        message:
+          type: string
+          example: Datos obtenidos con éxito.
+        internalTransactionId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        data:
+          $ref: '#/components/schemas/OfferData'
+      example:
+        code: "200"
+        data:
+          id_offer: 1
+          offerName: Summer Sale
+          offerPrice: 25
+          validity_from: 2023-08-11T00:00:00Z
+          validity_until: 2023-08-31T23:59:59Z
+        internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
+        message: Datos obtenidos con éxito.
+    ResponseUpdateOffer:
+      properties:
+        code:
+          type: string
+          example: "200"
+        message:
+          type: string
+          example: Oferta actualizada exitosamente.
+        internalTransactionId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        data:
+          $ref: '#/components/schemas/OfferData'
+      example:
+        code: "200"
+        data:
+          id_offer: 1
+          offerName: Summer Sale
+          offerPrice: 25
+          validity_from: 2023-08-11T00:00:00Z
+          validity_until: 2023-08-31T23:59:59Z
+        internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
+        message: Oferta actualizada exitosamente.
+    ResponseDeleteOffer:
+      properties:
+        code:
+          type: string
+          example: "200"
+        message:
+          type: string
+          example: Oferta eliminada exitosamente.
+        internalTransactionId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        data:
+          $ref: '#/components/schemas/OfferData'
+      example:
+        code: "200"
+        data:
+          id_offer: 1
+          offerName: Summer Sale
+          offerPrice: 25
+          validity_from: 2023-08-11T00:00:00Z
+          validity_until: 2023-08-31T23:59:59Z
+        internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
+        message: Oferta eliminada exitosamente.
+    ResponseNewOffer:
+      properties:
+        code:
+          type: string
+          example: "200"
+        message:
+          type: string
+          example: Oferta creada exitosamente.
+        internalTransactionId:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId:
+          type: string
+          example: fcea920f7412b5da7be0cf42b8c93759
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferData'
+      example:
+        code: "200"
+        data:
+        - id_offer: 1
+          offerName: Summer Sale
+          offerPrice: 25
+          validity_from: 2023-08-11T00:00:00Z
+          validity_until: 2023-08-31T23:59:59Z
+        - id_offer: 2
+          offerName: Autumn Special
+          offerPrice: 30
+          validity_from: 2023-09-01T00:00:00Z
+          validity_until: 2023-09-30T23:59:59Z
+        internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
+        externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
+        message: Oferta creada exitosamente.
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: API-KEY
+      in: header
+      x-apikeyInfoFunc: swagger_server.controllers.authorization_controller.check_ApiKeyAuth
+

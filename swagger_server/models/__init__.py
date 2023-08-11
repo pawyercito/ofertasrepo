@@ -1,0 +1,16 @@
+# coding: utf-8
+
+# flake8: noqa
+from __future__ import absolute_import
+# import models into model package
+from swagger_server.models.offer_data import OfferData
+from swagger_server.models.request_all_offers import RequestAllOffers
+from swagger_server.models.request_get_single_offer import RequestGetSingleOffer
+from swagger_server.models.request_new_offer import RequestNewOffer
+from swagger_server.models.request_offer_data import RequestOfferData
+from swagger_server.models.request_update_offer import RequestUpdateOffer
+from swagger_server.models.response_all_offers import ResponseAllOffers
+from swagger_server.models.response_delete_offer import ResponseDeleteOffer
+from swagger_server.models.response_get_single_offer import ResponseGetSingleOffer
+from swagger_server.models.response_new_offer import ResponseNewOffer
+from swagger_server.models.response_update_offer import ResponseUpdateOffer
