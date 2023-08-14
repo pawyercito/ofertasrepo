@@ -14,15 +14,15 @@ class RequestOfferData(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, id_offer: int=None, offer_name: str=None, offer_price: float=None, validity_from: datetime=None, validity_until: datetime=None):  # noqa: E501
+    def __init__(self, id_offer: int=None, offerName: str=None, offerPrice: float=None, validity_from: str=None, validity_until: str=None):  # noqa: E501
         """RequestOfferData - a model defined in Swagger
 
         :param id_offer: The id_offer of this RequestOfferData.  # noqa: E501
         :type id_offer: int
-        :param offer_name: The offer_name of this RequestOfferData.  # noqa: E501
-        :type offer_name: str
-        :param offer_price: The offer_price of this RequestOfferData.  # noqa: E501
-        :type offer_price: float
+        :param offerName: The offerName of this RequestOfferData.  # noqa: E501
+        :type offerName: str
+        :param offerPrice: The offerPrice of this RequestOfferData.  # noqa: E501
+        :type offerPrice: float
         :param validity_from: The validity_from of this RequestOfferData.  # noqa: E501
         :type validity_from: datetime
         :param validity_until: The validity_until of this RequestOfferData.  # noqa: E501
@@ -30,22 +30,22 @@ class RequestOfferData(Model):
         """
         self.swagger_types = {
             'id_offer': int,
-            'offer_name': str,
-            'offer_price': float,
-            'validity_from': datetime,
-            'validity_until': datetime
+            'offerName': str,
+            'offerPrice': float,
+            'validity_from': str,
+            'validity_until': str
         }
 
         self.attribute_map = {
             'id_offer': 'id_offer',
-            'offer_name': 'offerName',
-            'offer_price': 'offerPrice',
+            'offerName': 'offerName',
+            'offerPrice': 'offerPrice',
             'validity_from': 'validity_from',
             'validity_until': 'validity_until'
         }
         self._id_offer = id_offer
-        self._offer_name = offer_name
-        self._offer_price = offer_price
+        self._offer_name = offerName
+        self._offer_price = offerPrice
         self._validity_from = validity_from
         self._validity_until = validity_until
 
@@ -82,49 +82,49 @@ class RequestOfferData(Model):
         self._id_offer = id_offer
 
     @property
-    def offer_name(self) -> str:
-        """Gets the offer_name of this RequestOfferData.
+    def offerName(self) -> str:
+        """Gets the offerName of this RequestOfferData.
 
 
-        :return: The offer_name of this RequestOfferData.
+        :return: The offerName of this RequestOfferData.
         :rtype: str
         """
         return self._offer_name
 
-    @offer_name.setter
-    def offer_name(self, offer_name: str):
-        """Sets the offer_name of this RequestOfferData.
+    @offerName.setter
+    def offerName(self, offerName: str):
+        """Sets the offerName of this RequestOfferData.
 
 
-        :param offer_name: The offer_name of this RequestOfferData.
-        :type offer_name: str
+        :param offerName: The offerName of this RequestOfferData.
+        :type offerName: str
         """
 
-        self._offer_name = offer_name
+        self._offer_name = offerName
 
     @property
-    def offer_price(self) -> float:
-        """Gets the offer_price of this RequestOfferData.
+    def offerPrice(self) -> float:
+        """Gets the offerPrice of this RequestOfferData.
 
 
-        :return: The offer_price of this RequestOfferData.
+        :return: The offerPrice of this RequestOfferData.
         :rtype: float
         """
         return self._offer_price
 
-    @offer_price.setter
-    def offer_price(self, offer_price: float):
-        """Sets the offer_price of this RequestOfferData.
+    @offerPrice.setter
+    def offerPrice(self, offerPrice: float):
+        """Sets the offerPrice of this RequestOfferData.
 
 
-        :param offer_price: The offer_price of this RequestOfferData.
-        :type offer_price: float
+        :param offerPrice: The offerPrice of this RequestOfferData.
+        :type offerPrice: float
         """
 
-        self._offer_price = offer_price
+        self._offer_price = offerPrice
 
     @property
-    def validity_from(self) -> datetime:
+    def validity_from(self) -> str:
         """Gets the validity_from of this RequestOfferData.
 
 
@@ -134,7 +134,7 @@ class RequestOfferData(Model):
         return self._validity_from
 
     @validity_from.setter
-    def validity_from(self, validity_from: datetime):
+    def validity_from(self, validity_from: str):
         """Sets the validity_from of this RequestOfferData.
 
 
@@ -145,7 +145,7 @@ class RequestOfferData(Model):
         self._validity_from = validity_from
 
     @property
-    def validity_until(self) -> datetime:
+    def validity_until(self) -> str:
         """Gets the validity_until of this RequestOfferData.
 
 

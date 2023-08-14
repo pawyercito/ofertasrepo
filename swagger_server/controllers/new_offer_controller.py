@@ -8,8 +8,8 @@ from timeit import default_timer
 
 from swagger_server.utils.transactions.transaction import generate_internal_transaction_id
 from swagger_server.utils.logs.logging import log as logging
-from swagger_server.uses_cases.get_offer_uses_cases import GetOfferRepository
-from swagger_server.repository.get_offer_repository import GetOfferRepository
+from swagger_server.uses_cases.new_offer_uses_cases import NewOfferUseCase
+from swagger_server.repository.new_offer_repository import NewOfferRepository
 from swagger_server.resources.db import db
 
 
@@ -21,8 +21,8 @@ class NewOfferView(MethodView):
         self.log = log
         self.msg_log = 'ITID: %r - ETID: %r - Funcion: %r - Paquete : %r - Mensaje: %r '
         self.msg_log_time = 'ITID: %r - ETID: %r - Funcion: %r - Paquete : %r - Mensaje: Fin de la transacción, procesada en : %r milisegundos'
-        get_offer_repository = GetOfferRepository(mysql, log)
-        self.get_offer_use_case = GetOfferRepository(get_offer_repository, log)
+        new_offer_repository = NewOfferRepository(mysql, log)
+        self.new_offer_use_case = NewOfferUseCase(new_offer_repository, log)
 
     def new_offer(self):  # noqa: E501
         """Crear una nueva oferta.
@@ -37,7 +37,7 @@ class NewOfferView(MethodView):
 
         response = ""
         internal_transaction_id = str(generate_internal_transaction_id())
-        function_name = "get_offers"
+        function_name = "new_offer"
         package_name = __name__
         log = logging()
         start_time = default_timer()
@@ -50,7 +50,7 @@ class NewOfferView(MethodView):
                 self.msg_log,
                 internal_transaction_id, external_transaction_id, function_name, package_name, message)
 
-            response = self.get_offer_use_case.get_offer(body, internal_transaction_id, body.external_transaction_id)
+            response = self.new_offer_use_case.new_offer(body, internal_transaction_id)
 
             end_time = default_timer()
             log.info("ITID: %r - ETID: %r - Funcion: %r - Paquete : %r - Mensaje: Fin de la transacción, procesada en : %r milisegundos", internal_transaction_id, body.external_transaction_id, f"{function_name}", __name__, round((end_time-start_time)*1000))

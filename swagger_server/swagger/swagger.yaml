@@ -184,12 +184,10 @@ components:
           example: 25
         validity_from:
           type: string
-          format: date-time
-          example: 2023-08-11T00:00:00Z
+          example: 2023-08-11
         validity_until:
           type: string
-          format: date-time
-          example: 2023-08-31T23:59:59Z
+          example: 2023-08-31
     OfferData:
       type: object
       properties:
@@ -204,12 +202,10 @@ components:
           example: 25
         validity_from:
           type: string
-          format: date-time
-          example: 2023-08-11T00:00:00Z
+          example: 2023-08-11
         validity_until:
           type: string
-          format: date-time
-          example: 2023-08-31T23:59:59Z
+          example: 2023-08-31
     ResponseAllOffers:
       properties:
         code:
@@ -235,13 +231,13 @@ components:
         - id_offer: 1
           offerName: Summer Sale
           offerPrice: 25
-          validity_from: 2023-08-11T00:00:00Z
-          validity_until: 2023-08-31T23:59:59Z
+          validity_from: 2023-08-11
+          validity_until: 2023-08-31
         - id_offer: 2
           offerName: Autumn Special
           offerPrice: 30
-          validity_from: 2023-09-01T00:00:00Z
-          validity_until: 2023-09-30T23:59:59Z
+          validity_from: 2023-09-01
+          validity_until: 2023-09-30
         internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
         externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
         message: Datos obtenidos con éxito.
@@ -268,8 +264,8 @@ components:
           id_offer: 1
           offerName: Summer Sale
           offerPrice: 25
-          validity_from: 2023-08-11T00:00:00Z
-          validity_until: 2023-08-31T23:59:59Z
+          validity_from: 2023-08-11
+          validity_until: 2023-08-31
         internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
         externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
         message: Datos obtenidos con éxito.
@@ -296,8 +292,8 @@ components:
           id_offer: 1
           offerName: Summer Sale
           offerPrice: 25
-          validity_from: 2023-08-11T00:00:00Z
-          validity_until: 2023-08-31T23:59:59Z
+          validity_from: 2023-08-11
+          validity_until: 2023-08-31
         internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
         externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
         message: Oferta actualizada exitosamente.
@@ -324,8 +320,8 @@ components:
           id_offer: 1
           offerName: Summer Sale
           offerPrice: 25
-          validity_from: 2023-08-11T00:00:00Z
-          validity_until: 2023-08-31T23:59:59Z
+          validity_from: 2023-08-11
+          validity_until: 2023-08-31
         internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
         externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
         message: Oferta eliminada exitosamente.
@@ -354,13 +350,13 @@ components:
         - id_offer: 1
           offerName: Summer Sale
           offerPrice: 25
-          validity_from: 2023-08-11T00:00:00Z
-          validity_until: 2023-08-31T23:59:59Z
+          validity_from: 2023-08-11
+          validity_until: 2023-08-31
         - id_offer: 2
           offerName: Autumn Special
           offerPrice: 30
-          validity_from: 2023-09-01T00:00:00Z
-          validity_until: 2023-09-30T23:59:59Z
+          validity_from: 2023-09-01
+          validity_until: 2023-09-30
         internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
         externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
         message: Oferta creada exitosamente.
