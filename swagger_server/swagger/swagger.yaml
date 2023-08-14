@@ -59,7 +59,7 @@ paths:
                 $ref: '#/components/schemas/ResponseUpdateOffer'
         "400":
           description: Bad Request
-      x-openapi-router-controller: swagger_server.controllers.update_offer_controller
+      x-openapi-router-controller: swagger_server.controllers.update_offer_controller.UpdateOfferView
     delete:
       tags:
       - Delete Offer
@@ -106,7 +106,7 @@ paths:
                 $ref: '#/components/schemas/ResponseNewOffer'
         "400":
           description: Bad Request
-      x-openapi-router-controller: swagger_server.controllers.new_offer_controller
+      x-openapi-router-controller: swagger_server.controllers.new_offer_controller.NewOfferView
   /getOffer:
     post:
       tags:
@@ -128,7 +128,7 @@ paths:
                 $ref: '#/components/schemas/ResponseGetSingleOffer'
         "400":
           description: Bad Request
-      x-openapi-router-controller: swagger_server.controllers.get_single_offer_controller
+      x-openapi-router-controller: swagger_server.controllers.get_single_offer_controller.GetSingleOfferView
 components:
   schemas:
     RequestAllOffers:

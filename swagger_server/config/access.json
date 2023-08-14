@@ -1,0 +1,6 @@
+{
+    "MODE": "PROD",
+    "SALT": "$2b$12$DmpeAC/LMmc8UVA2ty5Uou",
+    "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://dba:c2VjcmV0Cg==@52.14.236.132:3306/xtrim",
+    "SERVICES": {}
+}
