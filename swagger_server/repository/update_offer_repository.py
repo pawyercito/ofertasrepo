@@ -16,13 +16,12 @@ class UpdateOfferRepository:
     
     def save_changes(self, offer_exist, offer_data ,internal_transaction_id, external_transaction_id):
         try:
-            offer_exist.description = offer_data.get("description")
-            offer_exist.idcategory = offer_data.get("idcategory")
-            offer_exist.name = offer_data.get("name")
-            offer_exist.older_age = offer_data.get("older_age")
-            offer_exist.price = offer_data.get("price")
-            offer_exist.status = offer_data.get("status")
-
+            print(f"Antes: {offer_exist.to_json()}")
+            offer_exist.offerName = offer_data.get("offerName")
+            offer_exist.offerPrice = offer_data.get("offerPrice")
+            offer_exist.validity_from = offer_data.get("validity_from")
+            offer_exist.validity_until = offer_data.get("validity_until")
+            print(f"Despues: {offer_exist.to_json()}")
             offer_exist.save()
             return offer_exist.to_json()
         except Exception as ex:
