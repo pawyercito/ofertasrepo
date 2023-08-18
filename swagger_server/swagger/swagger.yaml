@@ -360,10 +360,3 @@ components:
         internalTransactionId: d290f1ee-6c54-4b01-90e6-d701748f0851
         externalTransactionId: fcea920f7412b5da7be0cf42b8c93759
         message: Oferta creada exitosamente.
-  securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      name: API-KEY
-      in: header
-      x-apikeyInfoFunc: swagger_server.controllers.authorization_controller.check_ApiKeyAuth
-

@@ -8,7 +8,7 @@ from timeit import default_timer
 
 from swagger_server.utils.transactions.transaction import generate_internal_transaction_id
 from swagger_server.utils.logs.logging import log as logging
-from swagger_server.uses_cases.get_offer_uses_cases import GetOfferRepository
+from swagger_server.uses_cases.get_offer_uses_cases import GetOfferUseCase
 from swagger_server.repository.get_offer_repository import GetOfferRepository
 from swagger_server.resources.db import db
 
@@ -22,7 +22,7 @@ class GetSingleOfferView(MethodView):
         self.msg_log = 'ITID: %r - ETID: %r - Funcion: %r - Paquete : %r - Mensaje: %r '
         self.msg_log_time = 'ITID: %r - ETID: %r - Funcion: %r - Paquete : %r - Mensaje: Fin de la transacción, procesada en : %r milisegundos'
         get_offer_repository = GetOfferRepository(mysql, log)
-        self.get_offer_use_case = GetOfferRepository(get_offer_repository, log)
+        self.get_offer_use_case = GetOfferUseCase(get_offer_repository, log)
  
     def get_single_offer(self):  # noqa: E501
         """Obtener una oferta específica.
