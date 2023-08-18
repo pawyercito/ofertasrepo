@@ -15,7 +15,7 @@ def main():
     app = connexion.App(__name__, specification_dir='./swagger/')
     app.app.json_encoder = encoder.JSONEncoder
     app.add_api('swagger.yaml',
-                arguments={'title': 'offers-ms'},
+                arguments={'title': 'offers-api'},
                 pythonic_params=True,
                 resolver=MethodViewResolver("swagger_server.controllers"))
     app.app.config["SQLALCHEMY_DATABASE_URI"] = config.get("SQLALCHEMY_DATABASE_URI")

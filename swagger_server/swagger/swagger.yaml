@@ -1,11 +1,11 @@
 openapi: 3.0.3
 info:
-  title: offers-ms
+  title: offers-api
   description: |
     Offers microservice
   version: 1.0.0
 servers:
-- url: /rest/offers-ms/v1.0/
+- url: /rest/offers-api/v1.0/
 paths:
   /offers:
     post:
