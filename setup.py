@@ -20,10 +20,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="offers-api",
+    description="cw-offers-api",
     author_email="",
     url="",
-    keywords=["Swagger", "offers-api"],
+    keywords=["Swagger", "cw-offers-api"],
     install_requires=REQUIRES,
     packages=find_packages(),
     package_data={'': ['swagger/swagger.yaml']},

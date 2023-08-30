@@ -1,11 +1,11 @@
 openapi: 3.0.3
 info:
-  title: offers-api
+  title: cw-offers-api
   description: |
     Offers microservice
   version: 1.0.0
 servers:
-- url: /rest/offers-api/v1.0/
+- url: /rest/cw-offers-api/v1.0/
 paths:
   /offers:
     post:
