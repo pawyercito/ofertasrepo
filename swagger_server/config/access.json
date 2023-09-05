@@ -1,7 +1,7 @@
 {
     "MODE": "PROD",
     "SALT": "$2b$12$DmpeAC/LMmc8UVA2ty5Uou",
-    "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://dba:c2VjcmV0Cg==@3.136.234.203:3306/xtrim",
+    "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://Nextgen:Ti$Xtrim2023@#ext@192.168.59.55:3306/xtrim_contratos",
     "SQLALCHEMY_ENGINE_OPTIONS": {
         "echo": false,
         "pool_recycle": 300,
